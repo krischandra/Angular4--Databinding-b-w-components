@@ -1,0 +1,41 @@
+<!--I used Two way data binding and Localreference for same input for demo purpose. you can delete either two way data binding or Localreference   -->
+    <div class="col-xs-12">
+      <p>Add new Servers or blueprints!</p>
+      <label>Server Name</label>
+        <input  
+        type="text" 
+        class="form-control"  
+        [(ngModel)]="newServerName" 
+        #serverLocalReference>
+<!--
+ [(ngModel)]="newServerName"  Two way data binding
+ #serverLocalReference:       Localreference
+ Delete any one of the above and edit .ts file
+-->
+      <label>Server Content</label>
+      <input  type="text"
+              class="form-control"  
+              [(ngModel)]="newServerContent" 
+              #blueprintViewChild>
+
+      <br>
+      <!-- Using Two way data Binding  -->
+      <button
+        class="btn btn-primary"
+        (click)="serverAdded()">Add Server</button>
+          <!--Using Two way data Binding   -->
+      <button
+        class="btn btn-primary"
+        (click)="blueprintAdded()">Add Server Blueprint
+      </button>
+        <!--Using Localreference  -->
+            <button
+        class="btn btn-primary"
+        (click)="addServerLR(serverLocalReference)">Add Server Using Localreference
+      </button>
+        <!-- Using ViewChild  -->
+            <button
+        class="btn btn-primary"
+        (click)="addblueprintVC(blueprintViewChild)">Add BluePrint Using ViewChild
+      </button>
+    </div>
